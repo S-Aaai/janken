@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/sample.css">
+    <link href="https://unpkg.com/sanitize.css" rel="stylesheet" />
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Crimson+Pro&family=Literata
+    ">
+
+
+    <title>じゃんけんゲーム</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>じゃんけんゲーム<br>
+            Halloween ver.<br>
+            <br>
+        </h1>
+
+       <!-- Jaco-O-lamtern gif https://plnkr.co/edit/wteyjCoLLwvguti8?p=preview&preview -->
+    </header>
+
+
+
+
+
+
+
+    <div class="kekka">
+        <!-- アイコンアニメーション -->
+        <div class="container wallpaper">
+                <img src="./img/moon.png" alt="icon" class="icon">
+        </div>
+
+        
+        <div class="pc_handsdiv"><span id="pc_hands"></span>
+        </div>
+        <div class="judgment">勝負の結果</div>
+
+        <table class="result">
+            <th>かった数</th>
+            <td id="win-count">0</td>
+            <th>まけた数</th>
+            <td id="lose-count">0</td>
+        </table>
+
+        
+
+        <!-- ポップアップ -->
+        <div class="popup">
+            <h2 class="popup-content">Happy Halloween!<br></h2>
+            <h2 class="popup-content2">3回負け<br>ゲームオーバー<br></h2>
+        </div>
+
+        <ul>
+            <li class="gu_btn"><img src="./img/gu.png" alt="" width="400"></li>
+            <li class="cho_btn"><img src="./img/choki.png" alt="" width="400"></li>
+            <li class="pa_btn"><img src="./img/pa.png" alt="" width="400"></li>
+        </ul>
+    </div>
+
+            <!-- audio -->
+            <audio class="audio_janken" controls src="./audio/pon.mp3">
+                <!-- <a href="./audio/janken.mp3"></a> -->
+            </audio>
+
+
+    <footer></footer>
+    <script>
+        //じゃんけん用のSCRIPTを書いてください
+
+
+
+
+        // 変数定義
+        let winCount = 0;
+        let loseCount = 0;
+
+
+        $(".gu_btn").on("click", function () {
+            const num = Math.random(); //少数点の乱数生成
+            const r = Math.ceil(num * 3); //その変数に対しての繰り上げ
+            if (r == 1) {
+                $("#pc_hands").html('<img src="./img/gu.png" alt="" width="300">');
+                $(".gu_btn").addClass("is-active");
+                $("#judgment").html("あいこだよ");
+            }
+            if (r == 2) {
+                $("#pc_hands").html('<img src="./img/choki.png" alt="" width="300">');
+                $("#judgment").html("やった！");
+                winCount += 1
+                console.log("winCount : ", winCount);
+                $("#win-count").html(winCount);
+            }
+            if (r == 3) {
+                $("#pc_hands").html('<img src="./img/pa.png" alt="" width="300">');
+                $("#judgment").html("まけちゃった");
+                loseCount += 1
+                console.log("loseCount : ", loseCount);
+                $("#lose-count").html(loseCount);
+                
+            }
+
+            if (winCount == 3) {
+                $(".popup-content").addClass("active");
+            }
+            if (loseCount == 3) {
+                $(".popup-content2").addClass("active");
+            }
+            if (winCount >= 3){
+                winCount = 0;
+                console.log("ok");
+
+                window.setTimeout(function(){
+                    location.reload();
+                    console.log("settimer");
+                }, 5000);
+            }
+
+            if (loseCount >= 3){
+                loseCount = 0;
+                console.log("ok");
+
+                window.setTimeout(function(){
+                    location.reload();
+                    console.log("settimer");
+                }, 5000);
+            }
+
+            //add class名　.gu_btn.active
+            $(".gu_btn").addClass("active");
+            //サーバーの時計機能を使い発動
+            window.setTimeout(function(){
+                $(".gu_btn.active").removeClass("active");
+            }, 1000);
+
+            
+            
+            // $('.audio_janken').get(0).play();     
+            
+        });
+
+
+
+
+        $(".cho_btn").on("click", function () {
+            const num = Math.random(); //少数点の乱数生成
+            const r = Math.ceil(num * 3); //その変数に対しての繰り上げ
+            if (r == 1) {
+                $("#pc_hands").html('<img src="./img/gu.png" alt="" width="300">');
+                $("#judgment").html("まけちゃった");
+                loseCount += 1
+                console.log("loseCount : ", loseCount);
+                $("#lose-count").html(loseCount);
+            }
+            if (r == 2) {
+                $("#pc_hands").html('<img src="./img/choki.png" alt="" width="300">');
+                $("#judgment").html("あいこだよ");
+            }
+            if (r == 3) {
+                $("#pc_hands").html('<img src="./img/pa.png" alt="" width="300">');
+                $("#judgment").html("やった！");
+                winCount += 1
+                console.log("winCount : ", winCount);
+                $("#win-count").html(winCount);
+            }
+
+            if (winCount == 3) {
+                $(".popup-content").addClass("active");
+            }
+            if (loseCount == 3) {
+                $(".popup-content2").addClass("active");
+            }
+
+            if (winCount >= 3){
+                winCount = 0;
+                console.log("ok");
+
+                window.setTimeout(function(){
+                    location.reload();
+                    console.log("settimer");
+                }, 5000);
+            }
+
+            if (loseCount >= 3){
+                loseCount = 0;
+                console.log("ok");
+
+                window.setTimeout(function(){
+                    location.reload();
+                    console.log("settimer");
+                }, 5000);
+            }
+
+            //add class名　.cho_btn.active
+            $(".cho_btn").addClass("active");
+            //サーバーの時計機能を使い発動
+            window.setTimeout(function(){
+                $(".cho_btn.active").removeClass("active");
+            }, 1000);
+
+            // $('.audio_janken').get(0).play();     
+        });
+
+
+
+
+        $(".pa_btn").on("click", function () {
+            const num = Math.random(); //少数点の乱数生成
+            const r = Math.ceil(num * 3); //その変数に対しての繰り上げ
+            if (r == 1) {
+                $("#pc_hands").html('<img src="./img/gu.png" alt="" width="300">');
+                $("#judgment").html("やった！");
+                winCount += 1
+                console.log("winCount : ", winCount);
+                $("#win-count").html(winCount);
+            }
+            if (r == 2) {
+                $("#pc_hands").html('<img src="./img/choki.png" alt="" width="300">');
+                $("#judgment").html("まけちゃった");
+                loseCount += 1
+                console.log("loseCount : ", loseCount);
+                $("#lose-count").html(loseCount);
+            }
+            if (r == 3) {
+                $("#pc_hands").html('<img src="./img/pa.png" alt="" width="300">');
+                $("#judgment").html("あいこだよ");
+            }
+
+            if (winCount == 3) {
+            $(".popup-content").addClass("active");
+            }
+
+            if (loseCount == 3) {
+            $(".popup-content2").addClass("active");
+            }
+
+
+            if (winCount >= 3){
+                winCount = 0;
+                console.log("ok");
+
+                window.setTimeout(function(){
+                    location.reload();
+                    console.log("settimer");
+                }, 5000);
+            }
+
+
+            if (loseCount >= 3){
+                loseCount = 0;
+                console.log("ok");
+
+                window.setTimeout(function(){
+                    location.reload();
+                    console.log("settimer");
+                }, 5000);
+            }
+
+
+
+
+
+            //add class名　.pa_btn.active
+            $(".pa_btn").addClass("active");
+            //サーバーの時計機能を使い発動
+            window.setTimeout(function(){
+                $(".pa_btn.active").removeClass("active");
+            }, 1000);
+
+            // $('.audio_janken').get(0).play();
+            
+        });
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

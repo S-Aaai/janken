@@ -1,0 +1,250 @@
+/* pc 1366 x 768  */
+
+body {
+    text-align: left;
+    font-size: 32px;
+
+    font-family: "Literata";
+    background-image: url("../img/kabe.png");
+    height: 100%;
+
+
+    /* 背景画像透過 */
+    background-color:rgba(255, 255, 255, 0.5);
+    background-blend-mode:lighten; 
+    background-size: cover;
+}
+
+.icon {
+    position: relative;
+    position: absolute;
+    cursor: pointer;
+    margin-left: 400px;
+    margin-top: 150px;
+}
+
+
+
+header {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+}
+h1 {
+    color: #990099;
+    line-height: 1.3;
+    font-size: 70px;
+    width: 700px;
+    height: 150px;
+    margin-top: 110px;
+
+}
+
+
+
+/* ゲーム結果 */
+.kekka {
+    position: relative;
+    color: #666666;
+    height: 1500px;
+
+}
+.pc_handsdiv {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    height: 400px;
+
+}
+#pc_hands {
+    padding: 9px;
+    font-weight: bold;
+
+}
+
+.judgment, .result {
+    display: flex;
+    justify-content: center;
+}
+.judgment {
+    font-weight: bold;
+    font-size: 50px;
+}
+.result {
+    display: flex;
+    text-align: center;
+}
+#win-count {
+    padding-right: 20px;
+}
+
+
+/* グーチョキパー画像 */
+main {
+    height: 300.8px;
+}
+ul {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    margin-top: 180px;
+}
+li {
+    text-align: center;
+    display: table-cell;
+    cursor: pointer;
+
+}
+li:hover {
+    background: #990099;
+    /* color: #fff; */
+    transform: scale(1.1);
+    border: none;
+    border-radius: 20% 50%
+}
+
+
+footer {
+    /* background-color: #fff; */
+    text-align: center;
+}
+
+
+.audio_janken {
+    display: none;
+}
+
+
+
+/* ポップアップ */
+.popup {
+/* active でないとき隠す */
+    position: absolute;
+    visibility: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 0px;
+    left: 0px;
+}
+.popup-content.active, .popup-content2.active {    
+    visibility: visible;
+    text-align: center;
+    border: none;
+    font-weight: bold;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    
+    /* transform: translate(50% 50%); */
+}
+
+.popup-content, .popup-content2 {
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 30px;
+    margin: .20rem;
+    padding: 50px;
+
+    font-size: 3rem;
+    color: #666666;
+    background: #ffcf00;
+    cursor: pointer;
+    border: none;
+}
+/* .close {
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 30px;
+    margin: .20rem;
+    padding: 50px;
+
+    font-size: 3rem;
+    color: #666666;
+    background: #ffcf00;
+    cursor: pointer;
+    border: none;
+} */
+
+
+
+/* animation */
+/*下からフェードイン*/
+@keyframes gu {
+    0% {
+        transform: translatey(200%);
+    }
+    100% {
+        transform: translatex(30%);
+    }
+}
+@keyframes cho {
+    0% {
+        transform: translatey(200%);
+    }
+    100%{
+        transform: translatex(60%);
+    }
+}
+@keyframes pa {
+    0% {
+        transform: translatey(200%);
+    }
+    100% {
+        transform: translatex(-30%);
+    }
+}
+
+.gu_btn, .cho_btn, .pa_btn {
+    transition: transform 0.4s;
+}
+.gu_btn.active, .cho_btn.active, .pa_btn.active {
+    animation:element 2s infinite;
+    position: absolute;
+    width: 33.3333%;
+    top: 0;
+    font-size: 3.5em;
+    animation:gu 1s;
+    color: #000;
+    text-align: center;
+}
+.cho_btn.active {
+    animation:element 2s infinite;
+    position: absolute;
+    width: 33.3333%;
+    top: 0;
+    font-size: 3.5em;
+    animation:cho 1s;
+    color: #000;
+    text-align: center;
+}
+.pa_btn.active {
+    animation:element 2s infinite;
+    position: absolute;
+    width: 33.3333%;
+    top: 0;
+    font-size: 3.5em;
+    animation:pa 1s;
+    color: #000;
+    text-align: center;
+}
+
+/* アイコンアニメーション */
+/* .icon {
+    transition: transform 0.4s;
+    animation:element 2s infinite;
+    position: absolute;
+    animation:icon 1s;
+}  */
+
+.icon{
+    float: left;
+    animation: icon 3s;
+    }
+    @keyframes icon{
+    0%{transform: rotate(0deg) translateX(1000px) rotate(180deg);
+    }
+    100%{transform: rotate(-180deg) translateX(0px) rotate(180deg);
+    }
+    }
