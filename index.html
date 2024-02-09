@@ -24,7 +24,7 @@
             <br>
         </h1>
 
-       <!-- Jaco-O-lamtern gif https://plnkr.co/edit/wteyjCoLLwvguti8?p=preview&preview -->
+        <!-- Jaco-O-lamtern gif https://plnkr.co/edit/wteyjCoLLwvguti8?p=preview&preview -->
     </header>
 
 
@@ -60,9 +60,9 @@
         </div>
 
         <ul>
-            <li class="gu_btn"><img src="./img/gu.png" alt="" width="400"></li>
-            <li class="cho_btn"><img src="./img/choki.png" alt="" width="400"></li>
-            <li class="pa_btn"><img src="./img/pa.png" alt="" width="400"></li>
+            <li class="gu_btn"><img src="./img/gu.png" alt="" width="200"></li>
+            <li class="cho_btn"><img src="./img/choki.png" alt="" width="200"></li>
+            <li class="pa_btn"><img src="./img/pa.png" alt="" width="200"></li>
         </ul>
     </div>
 
@@ -88,19 +88,19 @@
             const num = Math.random(); //少数点の乱数生成
             const r = Math.ceil(num * 3); //その変数に対しての繰り上げ
             if (r == 1) {
-                $("#pc_hands").html('<img src="./img/gu.png" alt="" width="300">');
+                $("#pc_hands").html('<img src="./img/gu.png" alt="" width="150">');
                 $(".gu_btn").addClass("is-active");
                 $("#judgment").html("あいこだよ");
             }
             if (r == 2) {
-                $("#pc_hands").html('<img src="./img/choki.png" alt="" width="300">');
+                $("#pc_hands").html('<img src="./img/choki.png" alt="" width="150">');
                 $("#judgment").html("やった！");
                 winCount += 1
                 console.log("winCount : ", winCount);
                 $("#win-count").html(winCount);
             }
             if (r == 3) {
-                $("#pc_hands").html('<img src="./img/pa.png" alt="" width="300">');
+                $("#pc_hands").html('<img src="./img/pa.png" alt="" width="150">');
                 $("#judgment").html("まけちゃった");
                 loseCount += 1
                 console.log("loseCount : ", loseCount);
@@ -154,18 +154,18 @@
             const num = Math.random(); //少数点の乱数生成
             const r = Math.ceil(num * 3); //その変数に対しての繰り上げ
             if (r == 1) {
-                $("#pc_hands").html('<img src="./img/gu.png" alt="" width="300">');
+                $("#pc_hands").html('<img src="./img/gu.png" alt="" width="150">');
                 $("#judgment").html("まけちゃった");
                 loseCount += 1
                 console.log("loseCount : ", loseCount);
                 $("#lose-count").html(loseCount);
             }
             if (r == 2) {
-                $("#pc_hands").html('<img src="./img/choki.png" alt="" width="300">');
+                $("#pc_hands").html('<img src="./img/choki.png" alt="" width="150">');
                 $("#judgment").html("あいこだよ");
             }
             if (r == 3) {
-                $("#pc_hands").html('<img src="./img/pa.png" alt="" width="300">');
+                $("#pc_hands").html('<img src="./img/pa.png" alt="" width="150">');
                 $("#judgment").html("やった！");
                 winCount += 1
                 console.log("winCount : ", winCount);
@@ -216,21 +216,21 @@
             const num = Math.random(); //少数点の乱数生成
             const r = Math.ceil(num * 3); //その変数に対しての繰り上げ
             if (r == 1) {
-                $("#pc_hands").html('<img src="./img/gu.png" alt="" width="300">');
+                $("#pc_hands").html('<img src="./img/gu.png" alt="" width="150">');
                 $("#judgment").html("やった！");
                 winCount += 1
                 console.log("winCount : ", winCount);
                 $("#win-count").html(winCount);
             }
             if (r == 2) {
-                $("#pc_hands").html('<img src="./img/choki.png" alt="" width="300">');
+                $("#pc_hands").html('<img src="./img/choki.png" alt="" width="150">');
                 $("#judgment").html("まけちゃった");
                 loseCount += 1
                 console.log("loseCount : ", loseCount);
                 $("#lose-count").html(loseCount);
             }
             if (r == 3) {
-                $("#pc_hands").html('<img src="./img/pa.png" alt="" width="300">');
+                $("#pc_hands").html('<img src="./img/pa.png" alt="" width="150">');
                 $("#judgment").html("あいこだよ");
             }
 
